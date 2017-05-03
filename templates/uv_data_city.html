@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+<html>
+
+<head>
+
+<title>{{city_name}} UV data</title>
+
+</head>
+
+<body>
+
+    <div class="container" align="center">
+        <div class="col-md-12">
+            <div class="wrap">
+
+                {% if city_name %}
+                    <h2>{{city_name}} UV info</h2>
+                {% else %}
+                    <h2>Please choose a city first</h2>
+                {% endif %}
+
+                {% if uv2016 %}
+
+                    <p> UV Index value 2016: {{uv2016}} </p>
+
+                        {% if uv2016 < "3" %}
+                            <p> Low risk </p>
+                        {% endif %}
+
+                        {% if uv2016 < "6" and uv2016 > "3" %}
+                            <p> Moderate risk </p>
+                        {% endif %}
+
+                        {% if uv2016 < "8" and uv2016 > "6" %}
+                            <p> High risk </p>
+                        {% endif %}
+
+                        {% if uv2016 > "8" %}
+                            <p> Very high risk </p>
+                        {% endif %}
+
+                {% endif %}
+
+                {% if uv2017 %}
+                    <p> UV Index value 2017 {{uv2017}} </p>
+
+                        {% if uv2017 < "3" %}
+                            <p> Low risk </p>
+                        {% endif %}
+
+                        {% if uv2017 < "6" and uv2017 > "3" %}
+                            <p> Moderate risk </p>
+                        {% endif %}
+
+                        {% if uv2017 < "8" and uv2017 > "6" %}
+                            <p> High risk </p>
+                        {% endif %}
+
+                        {% if uv2017 > "8" %}
+                            <p> Very high risk </p>
+                        {% endif %}
+
+
+                {% endif %}
+
+                {% if city_name %}
+                    <p> <a href="/"> Choose another city </a> </p>
+                {% else %}
+                    <p> <a href="/"> Choose a city </a> </p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
