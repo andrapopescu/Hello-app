@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
 <html>
 
 <head>
 
-<title>{{city_name}} UV data</title>
+<title>{{city_name}} Weather data </title>
 
 </head>
 
@@ -15,10 +15,25 @@
             <div class="wrap">
 
                 {% if city_name %}
-                    <h2>{{city_name}} UV info</h2>
+                    <h2>{{city_name}} weather data </h2>
                 {% else %}
                     <h2>Please choose a city first</h2>
                 {% endif %}
+
+
+                {% if currentweather %}
+                    <p> Current weather: {{currentweather}}</p>
+                {% else %}
+                    <p>No weather data at this point</p>
+                {% endif %}
+
+
+                {% if currenttemp %}
+                    <p>Current temperature: {{currenttemp}}</p>
+                {% else %}
+                    <p>No temperature data at this point</p>
+                {% endif %}
+
 
                 {% if uv2016 %}
 
@@ -42,6 +57,7 @@
 
                 {% endif %}
 
+
                 {% if uv2017 %}
                     <p> UV Index value 2017 {{uv2017}} </p>
 
@@ -61,14 +77,23 @@
                             <p> Very high risk </p>
                         {% endif %}
 
-
                 {% endif %}
+
 
                 {% if city_name %}
-                    <p> <a href="/"> Choose another city </a> </p>
+
+                    <form action="/">
+                        <input type="submit" class="button" value="Choose another city" />
+                    </form>
+
                 {% else %}
-                    <p> <a href="/"> Choose a city </a> </p>
+
+                    <form action="/">
+                        <input type="submit" class="button" value="Choose a city" />
+                    </form>
+
                 {% endif %}
+
 
             </div>
         </div>

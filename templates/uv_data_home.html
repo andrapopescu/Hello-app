@@ -1,14 +1,18 @@
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Ultraviolet index</title>
+    <title>Weather data</title>
 </head>
 
 <body>
 
-    <div class="container" align="center">
+    <p class="info" align="right">Available cities: London, Southampton, Bristol </p>
+    <p class="info" align="right">Default city: Southampton </p>
+
+    <div class="container" align="center" >
         <div class="col-md-12">
             <div class="wrap">
 
@@ -20,12 +24,13 @@
                     <input type="text" id="name" name="name" value="" placeholder="Enter city name" required="required" autofocus="autofocus" />
                     <br> <br>
 
-                    <input type="submit" value="Submit" id="submit" />
+                    <input type="submit" class="button" value="Submit" id="submit" />
 
                 </form>
             </div>
         </div>
     </div>
+
 
 </body>
 
